@@ -1,5 +1,5 @@
 import UserCard from '../../components/UserCard';
-import styles from './UserPage.module.sass';
+import styles from './MainPage.module.sass';
 
 function UserPage () {
   return (

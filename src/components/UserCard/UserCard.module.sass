@@ -1,0 +1,35 @@
+@use './../../assets/_colors' as c
+
+.userCard
+  max-width: 400px
+  width: 100%
+  padding: 1rem
+  border: 2px solid black
+  border-radius: 0.9375rem
+  .imageSection
+    position: relative
+    width: 100%
+    .userImage
+      width: 100%
+    .switchFavBtn
+      position: absolute
+      top: 0
+      right: 0
+      font-size: 2rem
+      border: none
+      color: c.$is-not-fav-color
+      cursor: pointer
+    .isFavourite
+      color: c.$is-fav-color
+  .infoSection
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    gap: 1rem
+    h2
+      font-size: 1.5rem
+      font-weight: bold
+      text-align: center
+    p
+      text-align: center

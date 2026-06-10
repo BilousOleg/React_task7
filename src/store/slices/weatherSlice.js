@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import CONSTANTS from '../../constants';
 
 const {
-  SPEED: { KPH, MPS },
-  TEMPERATURE: { CELS, FAHR },
+  SPEED: { KPH },
+  TEMPERATURE: { CELS },
 } = CONSTANTS.UNITS;
 
 const initialState = {
@@ -18,26 +18,13 @@ const weatherSlice = createSlice({
   name: 'weather',
   reducers: {
     changeTempUnit: (state, { payload }) => {
-      if (state.tempUnit !== payload) {
-        if (payload === FAHR) {
-          state.temperature = (state.temperature * 9) / 5 + 32;
-        } else {
-          state.temperature = ((state.temperature - 32) * 5) / 9;
-        }
+      // Числове значення завжди залишатиметься на celsius (10) - змінюється тільки одиниця виміру
 
-        state.tempUnit = payload;
-      }
+      state.tempUnit = payload;
     },
     changeSpeedUnit: (state, { payload }) => {
-      if (state.speedUnit !== payload) {
-        if (payload === MPS) {
-          state.windSpeed = (state.windSpeed / 3.6).toFixed(2);
-        } else {
-          state.windSpeed = (state.windSpeed * 3.6).toFixed(2);
-        }
-
-        state.speedUnit = payload;
-      }
+      // Числове значення завжди залишатиметься на kmh (1) - змінюється тільки одиниця виміру
+      state.speedUnit = payload;
     },
   },
 });

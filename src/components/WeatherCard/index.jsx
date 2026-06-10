@@ -7,6 +7,7 @@ import {
   changeSpeedUnit,
   changeTempUnit,
 } from '../../store/slices/weatherSlice';
+import { convertSpeed, convertTemperature } from '../../utils/convertFunctions';
 
 const {
   SPEED: { MPS, KPH },
@@ -49,12 +50,17 @@ function WeatherCard () {
       <ul>
         <Current
           valueIcon={<FaTemperatureLow />}
-          currentValue={temperature}
+          // передається не сире значення, а оброблене та змінене у випадку, якщо одиниця виміру - не celsius
+          // тобто змінюється тільки відображення, а не стан
+          currentValue={convertTemperature(temperature, tempUnit)}
           realValueUnit={getRealUnit(tempUnit)}
         />
+        {}
         <Current
           valueIcon={<FaWind />}
-          currentValue={windSpeed}
+          // передається не сире значення, а оброблене та змінене у випадку, якщо одиниця виміру - не kmh
+          // тобто змінюється тільки відображення, а не стан
+          currentValue={convertSpeed(windSpeed, speedUnit)}
           realValueUnit={getRealUnit(speedUnit)}
         />
       </ul>

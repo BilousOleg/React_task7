@@ -1,0 +1,28 @@
+@use './../../assets/_colors' as c
+
+.weatherCard
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  max-width: 400px
+  width: 100%
+  margin-top: 5rem
+  padding: 1rem
+  border: 2px solid c.$default-text-color
+  border-radius: 0.9375rem  
+  h2
+    margin-bottom: 0.75rem
+    font-size: 1.5rem
+    font-weight: bold
+    text-align: center
+  li
+    font-size: 1.25rem
+    text-align: center
+    span
+      margin-left: 0.4rem
+  select
+    width: 50%
+    margin-top: 1rem
+    padding: 0.35rem
+    font: inherit

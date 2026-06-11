@@ -1,16 +1,20 @@
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { FaHeart } from 'react-icons/fa';
 import { toggleFavourite } from '../../store/slices/userSlice';
 import styles from './UserCard.module.sass';
 
-function UserCard ({
-  firstName,
-  lastName,
-  userImage,
-  isFavourite,
-  toggleFavourite,
-}) {
+function UserCard () {
+  const dispatch = useDispatch();
+
+  const { firstName, lastName, userImage, isFavourite } = useSelector(
+    state => state.user
+  );
+
+  const handleToggleFavourite = () => {
+    dispatch(toggleFavourite());
+  };
+
   const switchBtnClasses = classNames(styles.switchFavBtn, {
     [styles.isFavourite]: isFavourite,
   });
@@ -18,12 +22,7 @@ function UserCard ({
   return (
     <article className={styles.userCard}>
       <section className={styles.imageSection}>
-        <button
-          onClick={() => {
-            toggleFavourite();
-          }}
-          className={switchBtnClasses}
-        >
+        <button onClick={handleToggleFavourite} className={switchBtnClasses}>
           <FaHeart />
         </button>
         <img className={styles.userImage} src={userImage} alt='user image' />
@@ -41,15 +40,4 @@ function UserCard ({
   );
 }
 
-const mapStateToProps = state => ({
-  firstName: state.user.firstName,
-  lastName: state.user.lastName,
-  userImage: state.user.userImage,
-  isFavourite: state.user.isFavourite,
-});
-
-const mapDispatchToProps = {
-  toggleFavourite,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserCard);
+export default UserCard;

@@ -10,11 +10,10 @@ const initialState = {
 
 const userSlice = createSlice({
   initialState,
-  name: 'userCard',
+  name: 'user',
   reducers: {
     toggleFavourite: state => {
       state.isFavourite = !state.isFavourite;
-      console.log(state.isFavourite);
     },
   },
 });

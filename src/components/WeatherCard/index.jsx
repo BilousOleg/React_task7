@@ -13,6 +13,7 @@ const {
   TEMPERATURE: { CELS, FAHR },
 } = CONSTANTS.UNITS;
 
+// Функція отримання одиниць вимірювання для відображення (не обов'язкова, але для гарного вигляду зробив)
 function getRealUnit (unit) {
   switch (unit) {
     case 'ms':
@@ -49,12 +50,12 @@ function WeatherCard () {
       <ul>
         <Current
           valueIcon={<FaTemperatureLow />}
-          currentValue={temperature}
+          currentValue={temperature.toFixed(1)}
           realValueUnit={getRealUnit(tempUnit)}
         />
         <Current
           valueIcon={<FaWind />}
-          currentValue={windSpeed}
+          currentValue={windSpeed.toFixed(1)}
           realValueUnit={getRealUnit(speedUnit)}
         />
       </ul>

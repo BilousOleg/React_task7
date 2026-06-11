@@ -19,23 +19,31 @@ const weatherSlice = createSlice({
   reducers: {
     changeTempUnit: (state, { payload }) => {
       if (state.tempUnit !== payload) {
-        if (payload === FAHR) {
-          state.temperature = (state.temperature * 9) / 5 + 32;
-        } else {
-          state.temperature = ((state.temperature - 32) * 5) / 9;
+        switch (payload) {
+          case FAHR:
+            state.temperature = (state.temperature * 9) / 5 + 32;
+            break;
+          case CELS:
+            state.temperature = ((state.temperature - 32) * 5) / 9;
+            break;
+          default:
+            return;
         }
-
         state.tempUnit = payload;
       }
     },
     changeSpeedUnit: (state, { payload }) => {
       if (state.speedUnit !== payload) {
-        if (payload === MPS) {
-          state.windSpeed = (state.windSpeed / 3.6).toFixed(2);
-        } else {
-          state.windSpeed = (state.windSpeed * 3.6).toFixed(2);
+        switch (payload) {
+          case MPS:
+            state.windSpeed = state.windSpeed / 3.6;
+            break;
+          case KPH:
+            state.windSpeed = state.windSpeed * 3.6;
+            break;
+          default:
+            return;
         }
-
         state.speedUnit = payload;
       }
     },

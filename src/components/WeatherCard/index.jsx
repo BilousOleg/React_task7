@@ -16,13 +16,13 @@ const {
 // Функція отримання одиниць вимірювання для відображення (не обов'язкова, але для гарного вигляду зробив)
 function getRealUnit (unit) {
   switch (unit) {
-    case 'ms':
+    case MPS:
       return 'M/s';
-    case 'kmh':
+    case KPH:
       return 'Km/h';
-    case 'celsius':
+    case CELS:
       return '°C';
-    case 'fahrenheit':
+    case FAHR:
       return '°F';
     default:
       return unit;

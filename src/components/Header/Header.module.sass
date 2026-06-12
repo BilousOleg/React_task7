@@ -1,0 +1,26 @@
+@use './../../assets/_colors' as c
+  
+.header
+  position: sticky
+  top: 0
+  z-index: 1
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 1.5rem 2.5rem
+  background-color: c.$main-color-default
+  box-shadow: 0 0.3125rem 0.9375rem c.$main-color-dark
+  .logo
+    font-size: 1.5rem
+    font-weight: bold
+  .navLink
+    min-width: 100px
+    padding: 0.5rem 1rem
+    text-align: center
+    border: 1px solid c.$default-text-color
+    border-radius: 0.75rem
+    background-color: c.$main-color-default
+    &:hover
+      background-color: c.$main-color-medium
+    &:active
+      background-color: c.$main-color-default

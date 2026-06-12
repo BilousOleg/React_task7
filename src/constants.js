@@ -9,6 +9,10 @@ const CONSTANTS = {
       FAHR: 'fahrenheit',
     },
   },
+  ROUTES: {
+    USER: '/user',
+    WEATHER: '/weather',
+  },
 };
 
 export default CONSTANTS;
